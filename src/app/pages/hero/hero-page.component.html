@@ -1,0 +1,33 @@
+<h1 class="--bs-primary">{{ name() }}</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-success table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Method</th>
+        <th scope="col">Capitalized</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <th>{{ name() }}</th>
+        <td>{{ age() }}</td>
+        <td>{{ heroDescription() }}</td>
+        <!-- <td>{{ capitalizedName() }}</td> -->
+         <td>{{ name() | uppercase  }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-grid gap-3 d-md-flex justify-content-md-center">
+  <button (click)="changeHero()" class="btn btn-primary mx-2">
+    Cambiar nombre
+  </button>
+
+  <button (click)="changeAge()" class="btn btn btn-warning">Cambiar edad</button>
+
+  <button (click)="resetForm()" class="btn btn-danger mx-2">Reset</button> 
+</div>
