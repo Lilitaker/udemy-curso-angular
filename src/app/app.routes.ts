@@ -11,5 +11,10 @@ export const routes: Routes = [
   {
     path: 'hero',
     component: HeroPageComponent,
+  },
+  {
+    // Redirects home when trying to access an unknown path
+    path: '**',
+    redirectTo: '',
   }
 ];
