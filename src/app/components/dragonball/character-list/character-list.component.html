@@ -1,0 +1,16 @@
+<h3>{{listName()}}</h3>
+<ul class="list-group">
+  @for (character of characterList(); track character.id; let characterIdx = $index) {
+    @if (character.power > 2000) {
+      <li class="list-group-item">
+        <span>{{characterIdx + 1}} - {{ character.name}}</span>
+        <strong 
+          [class.text-danger]="character.power > 9000"
+          [class.text-primary]="character.power < 9000"
+        > ({{ character.power}})</strong>
+      </li>
+    } @else {
+      <li class="list-group-item">This goes a weak character, so it is hid</li>
+    }
+  }
+</ul>
