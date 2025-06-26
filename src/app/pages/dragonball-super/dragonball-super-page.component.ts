@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CharacterAddComponent } from '../../components/dragonball/character-add/character-add.component';
 import { CharacterListComponent } from "../../components/dragonball/character-list/character-list.component";
-import { Character } from '../../interfaces/character.interface';
+import { DragonballService } from '../../services/dragonball.service';
 
 @Component({
   templateUrl: 'dragonball-super-page.component.html',
@@ -10,14 +10,16 @@ import { Character } from '../../interfaces/character.interface';
 })
 
 export class DragonballSuperPageComponent {
-  characterList = signal<Character[]>([
-    {id: 1, name: 'Goku', power: 9001},
-    {id: 2, name: 'Vegeta', power: 8000},
-  ]);
+  /* // Manera antigua de inyectar un servicio
+  constructor(
+    public dragonballService: DragonballService
+  ){} 
 
-  addCharacter = (newCharacter: Character) => {
-    this.characterList.update(
-      list => [...list, newCharacter]
-    );
+  addCharacter() {
+    this.dragonballService.addCharacter
   }
+  */
+
+  // Nueva forma de inyectar un servicio
+  public dragonballService = inject(DragonballService);
 }
